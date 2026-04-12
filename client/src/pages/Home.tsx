@@ -30,8 +30,8 @@ export default function Home() {
   const whatsappLink2 = `https://wa.me/${whatsappNumber2}?text=${encodeURIComponent(whatsappMessage)}`;
   const emailAddress1 = "pertiniexpress@pertiniexpress.com.br";
   const emailAddress2 = "douglasalex@pertiniexpress.com.br";
-  const phone1 = "(41) 99734-1333";
-  const phone2 = "(41) 99845-5070";
+  const phone1 = "(41) 99845-5070";
+  const phone2 = "(41) 99734-1333";
   const logoUrl = "https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/pertini-express-logo_a5eb312f.png";
 
   const services = [
