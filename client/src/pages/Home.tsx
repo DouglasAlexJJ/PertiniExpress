@@ -23,8 +23,8 @@ import {
 
 export default function Home() {
   // Contatos principais
-  const whatsappNumber1 = "5541997341333"; // Douglas
-  const whatsappNumber2 = "5541998455070"; // Sandro
+  const whatsappNumber1 = "5541998455070"; // Sandro
+  const whatsappNumber2 = "5541997341333"; // Douglas
   const whatsappMessage = "Olá! Gostaria de conhecer mais sobre os serviços da Pertini Express.";
   const whatsappLink1 = `https://wa.me/${whatsappNumber1}?text=${encodeURIComponent(whatsappMessage)}`;
   const whatsappLink2 = `https://wa.me/${whatsappNumber2}?text=${encodeURIComponent(whatsappMessage)}`;
