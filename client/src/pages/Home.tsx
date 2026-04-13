@@ -4,6 +4,7 @@ import {
   Truck, 
   MapPin, 
   Shield, 
+  Zap, 
   Phone, 
   Mail, 
   MessageCircle,
@@ -12,258 +13,465 @@ import {
   Users
 } from "lucide-react";
 
+/**
+ * DESIGN PHILOSOPHY: Premium Professionalism with Textures
+ * - Deep blue (#1e3a8a) for trust and professionalism
+ * - Gold/Bronze (#d97706) for premium highlights
+ * - Warm beige/cream background (#faf8f3) for elegance
+ * - Lora serif for headings, Poppins sans-serif for body
+ * - Subtle textures and refined animations
+ */
+
 export default function Home() {
-  // Contatos principais separados
-  const whatsappNumberSandro = "5541998455070"; // Comercial
-  const whatsappNumberDouglas = "5541997341333"; // Agregados
+  // Contatos principais separados por função
+  const whatsappNumberSandro = "5541998455070"; // Comercial / Clientes
+  const whatsappNumberDouglas = "5541997341333"; // Agregados / Parceiros
   
-  const msgCliente = "Olá! Gostaria de uma cotação para transporte com a Pertini Express.";
+  const msgCliente = "Olá! Gostaria de uma cotação e conhecer mais sobre os serviços da Pertini Express.";
   const msgAgregado = "Olá Douglas! Tenho interesse em agregar meu veículo na Pertini Express.";
   
-  const linkSandro = `https://wa.me/${whatsappNumberSandro}?text=${encodeURIComponent(msgCliente)}`;
-  const linkDouglas = `https://wa.me/${whatsappNumberDouglas}?text=${encodeURIComponent(msgAgregado)}`;
+  const whatsappLinkSandro = `https://wa.me/${whatsappNumberSandro}?text=${encodeURIComponent(msgCliente)}`;
+  const whatsappLinkDouglas = `https://wa.me/${whatsappNumberDouglas}?text=${encodeURIComponent(msgAgregado)}`;
   
-  const emailPrincipal = "pertiniexpress@pertiniexpress.com.br";
+  const emailAddress1 = "pertiniexpress@pertiniexpress.com.br";
+  const emailAddress2 = "douglasalex@pertiniexpress.com.br";
+  
   const phoneSandro = "(41) 99845-5070";
+  const phoneDouglas = "(41) 99734-1333";
+  
+  const logoUrl = "https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/pertini-express-logo_a5eb312f.png";
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const services = [
+    {
+      icon: Truck,
+      title: "Transporte Rodoviário",
+      description: "Frota moderna e bem mantida para garantir a segurança e pontualidade de suas cargas com preço justo."
+    },
+    {
+      icon: MapPin, // Mantido o ícone original, mas com texto corrigido
+      title: "Cargas Monitoradas",
+      description: "Acompanhamento e monitoramento interno constante da sua carga para garantir total segurança durante todo o trajeto."
+    },
+    {
+      icon: Shield,
+      title: "Segurança de Carga",
+      description: "Equipes treinadas e gestão rigorosa de segurança para proteger seus bens do início ao fim."
+    },
+    {
+      icon: Zap,
+      title: "Entrega Rápida",
+      description: "Prazos otimizados e rotas eficientes para garantir a entrega no menor tempo possível."
     }
-  };
+  ];
+
+  const benefits = [
+    "Frota moderna e certificada",
+    "Motoristas experientes e parceiros",
+    "Preço justo para clientes e agregados",
+    "Seguro abrangente de cargas",
+    "Atendimento personalizado",
+    "Cargas 100% monitoradas internamente"
+  ];
 
   return (
-    <div className="min-h-screen bg-[#faf8f3] text-slate-900 font-sans selection:bg-[#d97706]/30">
-      {/* Header Premium */}
-      <header className="fixed top-0 w-full z-50 bg-[#1e3a8a]/95 backdrop-blur-sm text-white border-b border-white/10 shadow-lg">
-        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-10 h-10 bg-[#d97706] rounded flex items-center justify-center font-bold text-xl shadow-inner">P</div>
-            <span className="font-serif text-xl tracking-tight font-bold italic">PERTINI <span className="text-[#d97706]">EXPRESS</span></span>
+    <div className="min-h-screen bg-background">
+      {/* Header/Navigation */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-border">
+        <div className="container flex items-center justify-between h-16">
+          <div className="flex items-center gap-2">
+            <img src={logoUrl} alt="Pertini Express" className="h-12 w-auto" />
           </div>
-          
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wider">
-            <button onClick={() => scrollToSection('servicos')} className="hover:text-[#d97706] transition-colors">Serviços</button>
-            <button onClick={() => scrollToSection('sobre')} className="hover:text-[#d97706] transition-colors">Sobre</button>
-            <button onClick={() => scrollToSection('contato')} className="hover:text-[#d97706] transition-colors">Contato</button>
-            <button onClick={() => scrollToSection('agregar')} className="text-[#d97706] hover:text-white font-bold transition-colors">Agregar</button>
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#servicos" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Serviços</a>
+            <a href="#sobre" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Sobre</a>
+            <a href="#contato" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Contato</a>
+            {/* Novo botão Agregar no menu */}
+            <a href="#agregar" className="text-sm font-bold text-accent hover:text-accent/80 transition-colors border-b-2 border-accent pb-1">Agregar</a>
           </nav>
-
-          <Button 
-            className="bg-[#d97706] hover:bg-[#b46204] text-white shadow-lg transition-all duration-300"
-            onClick={() => window.open(linkSandro, '_blank')}
+          <a 
+            href={whatsappLinkSandro}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-sm font-medium"
           >
-            Falar com Comercial
-          </Button>
+            <MessageCircle className="w-4 h-4" />
+            WhatsApp
+          </a>
         </div>
       </header>
 
-      {/* Hero Section Premium */}
-      <section className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#1e3a8a] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a8a] to-transparent opacity-90"></div>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+        </div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight mb-6 italic drop-shadow-lg">
-              Excelência e Segurança no <span className="text-[#d97706]">Transporte Rodoviário</span>
+        <div className="container relative py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h1 className="text-gradient">
+              Transporte de Excelência para Seu Negócio
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-light">
-              Logística profissional com foco em pontualidade, monitoramento constante e preço justo para quem envia e para quem transporta.
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              A Pertini Express oferece soluções de transporte rodoviário de primeira qualidade, com preço justo, equipes dedicadas e monitoramento rigoroso para garantir a segurança da sua carga.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-[#d97706] hover:bg-[#b46204] h-14 px-8 text-lg shadow-xl" onClick={() => window.open(linkSandro, '_blank')}>
-                Solicitar Cotação <ArrowRight className="ml-2 w-5 h-5" />
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <a 
+              href={whatsappLinkSandro}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white h-12 px-8 rounded-lg font-medium flex items-center justify-center gap-2">
+                <MessageCircle className="w-5 h-5" />
+                Fale com o Comercial
               </Button>
-              <Button size="lg" variant="outline" className="border-[#d97706] text-[#d97706] hover:bg-[#d97706] hover:text-white h-14 px-8 text-lg transition-all" onClick={() => scrollToSection('servicos')}>
-                Nossos Serviços
+            </a>
+            <a href={`mailto:${emailAddress1}`}>
+              <Button variant="outline" className="w-full sm:w-auto h-12 px-8 rounded-lg font-medium flex items-center justify-center gap-2 border-primary text-primary hover:bg-primary hover:text-white">
+                <Mail className="w-5 h-5" />
+                Enviar E-mail
               </Button>
+            </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Serviços Section */}
-      <section id="servicos" className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#1e3a8a]">Soluções Logísticas Completas</h2>
-            <div className="w-24 h-1 bg-[#d97706] mx-auto"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="border-none shadow-xl bg-white hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-              <CardContent className="pt-8">
-                <div className="w-16 h-16 bg-[#faf8f3] text-[#d97706] rounded-full flex items-center justify-center mb-6 shadow-inner border border-[#d97706]/20">
-                  <Truck className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-[#1e3a8a]">Transporte Express</h3>
-                <p className="text-slate-600 leading-relaxed">Entregas rápidas e eficientes com foco na urgência da sua carga.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-xl bg-white hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-              <CardContent className="pt-8">
-                <div className="w-16 h-16 bg-[#faf8f3] text-[#d97706] rounded-full flex items-center justify-center mb-6 shadow-inner border border-[#d97706]/20">
-                  <Shield className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-[#1e3a8a]">Cargas Monitoradas</h3>
-                <p className="text-slate-600 leading-relaxed">Sua carga 100% segura. Monitoramos internamente cada etapa do transporte para sua tranquilidade.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-xl bg-white hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-              <CardContent className="pt-8">
-                <div className="w-16 h-16 bg-[#faf8f3] text-[#d97706] rounded-full flex items-center justify-center mb-6 shadow-inner border border-[#d97706]/20">
-                  <MapPin className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-[#1e3a8a]">Abrangência Regional</h3>
-                <p className="text-slate-600 leading-relaxed">Ampla rede de atendimento garantindo que sua mercadoria chegue ao destino com segurança.</p>
-              </CardContent>
-            </Card>
+          
+          <div className="relative h-96 rounded-2xl overflow-hidden premium-shadow-lg">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/hero-frota-moderna-HHxSvHHQeYjNFu8NiaZ7oz.webp"
+              alt="Frota moderna Pertini Express"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
           </div>
         </div>
       </section>
 
-      {/* Sobre Section */}
-      <section id="sobre" className="py-24 bg-white relative overflow-hidden border-y border-slate-100">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="flex-1 space-y-6">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1e3a8a]">Experiência que Gera Confiança</h2>
-              <div className="w-16 h-1 bg-[#d97706]"></div>
-              <p className="text-slate-600 text-lg leading-relaxed">
-                A Pertini Express nasceu com o compromisso de oferecer um serviço de transporte rodoviário diferenciado. Entendemos que cada carga é única e exige o máximo cuidado e atenção.
-              </p>
-              <div className="space-y-4 pt-4">
-                {[
-                  "Profissionais altamente capacitados e experientes",
-                  "Monitoramento de carga constante por nossa gestão",
-                  "Compromisso real com os prazos de entrega",
-                  "Preço justo e transparência em todas as etapas"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-[#d97706]/10 text-[#d97706] rounded-full flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4" />
+      {/* Services Section */}
+      <section id="servicos" className="py-20 md:py-32 bg-white">
+        <div className="container space-y-16">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <h2 className="text-primary">Nossos Serviços</h2>
+            <p className="text-lg text-muted-foreground">
+              Oferecemos soluções completas de transporte com foco total em segurança e atendimento personalizado.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <Card key={index} className="border-border hover:border-accent transition-colors group">
+                  <CardContent className="p-8 space-y-4">
+                    <div className="w-14 h-14 rounded-lg gradient-accent flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <span className="font-medium text-slate-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="flex-1 w-full max-w-lg">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-[#d97706]/20 rounded-xl transform rotate-3 transition-transform hover:rotate-6 duration-500"></div>
-                <div className="relative bg-[#1e3a8a] aspect-square rounded-xl shadow-2xl flex items-center justify-center p-12 overflow-hidden border border-[#1e3a8a]/50">
-                  <Truck className="w-full h-full text-white/5 absolute -right-10 -bottom-10" />
-                  <div className="text-center z-10">
-                    <span className="text-6xl font-serif font-bold text-[#d97706] italic drop-shadow-md">20+</span>
-                    <p className="text-white text-lg font-medium mt-2 tracking-wide">Anos de experiência<br/>no setor</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    <h3 className="text-xl font-lora font-semibold text-primary">{service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Agregue Conosco Section */}
-      <section id="agregar" className="py-24 bg-[#faf8f3]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
-            <div className="flex-1 p-10 md:p-14 bg-gradient-to-br from-[#1e3a8a] to-[#152a66] text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#d97706] rounded-full blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-[#d97706] rounded-xl flex items-center justify-center mb-8 shadow-lg">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Agregue Conosco!</h2>
-                <div className="w-12 h-1 bg-[#d97706] mb-6"></div>
-                <p className="text-white/90 mb-8 leading-relaxed text-lg">
-                  Buscamos parceiros que compartilham nossos valores de pontualidade e cuidado. Oferecemos um pagamento justo e parcerias duradouras para motoristas profissionais.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3"><Check className="text-[#d97706] w-5 h-5" /> <span className="font-medium">Pagamento pontual e justo</span></li>
-                  <li className="flex items-center gap-3"><Check className="text-[#d97706] w-5 h-5" /> <span className="font-medium">Suporte operacional constante</span></li>
-                  <li className="flex items-center gap-3"><Check className="text-[#d97706] w-5 h-5" /> <span className="font-medium">Cargas monitoradas por nós</span></li>
-                </ul>
-              </div>
-            </div>
-            <div className="flex-1 p-10 md:p-14 flex flex-col justify-center items-center text-center bg-white">
-              <h3 className="text-2xl font-bold mb-4 text-[#1e3a8a]">Seja um Parceiro Pertini</h3>
-              <p className="text-slate-600 mb-8 text-lg">Fale diretamente com o Douglas para conhecer nossas condições de agregamento e começar a rodar.</p>
-              <Button 
-                size="lg" 
-                className="bg-[#25D366] hover:bg-[#1ebd59] text-white w-full md:w-auto h-14 px-10 shadow-lg text-lg transition-transform hover:scale-105"
-                onClick={() => window.open(linkDouglas, '_blank')}
-              >
-                <MessageCircle className="mr-2 w-6 h-6" /> Falar com Douglas
-              </Button>
-            </div>
+      {/* Features Section - AGORA COM ID="sobre" CORRIGIDO */}
+      <section id="sobre" className="py-20 md:py-32 bg-gradient-to-br from-primary/5 to-accent/5">
+        <div className="container grid md:grid-cols-2 gap-16 items-center">
+          <div className="relative h-96 rounded-2xl overflow-hidden premium-shadow">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/rastreamento-logistica-PUPYSW3kgzf8CUWWTh9aVH.webp"
+              alt="Sistema de rastreamento"
+              className="w-full h-full object-cover"
+            />
           </div>
-        </div>
-      </section>
 
-      {/* Footer Premium */}
-      <footer id="contato" className="bg-[#1e3a8a] text-white pt-20 pb-10 border-t-4 border-[#d97706]">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div className="col-span-1 md:col-span-1">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-10 h-10 bg-[#d97706] rounded flex items-center justify-center font-bold shadow-inner">P</div>
-                <span className="font-serif text-xl font-bold italic tracking-tight">PERTINI <span className="text-[#d97706]">EXPRESS</span></span>
-              </div>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Referência em logística e transporte rodoviário, conectando negócios com eficiência e segurança por todo o Brasil.
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-primary mb-4">Por Que Escolher a Pertini Express?</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Fundada por Sandro Augusto da Rocha, profissional com ampla experiência no setor de transportes, a Pertini Express oferece soluções confiáveis, seguras e eficientes para suas necessidades logísticas, valorizando tanto o cliente quanto nossos motoristas parceiros.
               </p>
             </div>
 
-            <div className="space-y-5">
-              <h3 className="font-bold text-[#d97706] uppercase tracking-wider text-sm border-b border-white/10 pb-2">Comercial / Clientes</h3>
-              <ul className="space-y-3 text-sm text-white/90">
-                <li className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-[#d97706]" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-1">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-foreground font-medium">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Security Section */}
+      <section className="py-20 md:py-32 bg-white">
+        <div className="container grid md:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8 order-2 md:order-1">
+            <div>
+              <h2 className="text-primary mb-4">Segurança em Primeiro Lugar</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Sua carga é nossa responsabilidade. Realizamos um controle rígido e interno de cada viagem, com cobertura de seguro abrangente para sua tranquilidade.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex gap-4">
+                <div className="w-12 h-12 rounded-lg gradient-gold flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Proteção Total</h3>
+                  <p className="text-sm text-muted-foreground">Seguro abrangente para todas as suas cargas</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="w-12 h-12 rounded-lg gradient-gold flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Monitoramento Contínuo</h3>
+                  <p className="text-sm text-muted-foreground">Acompanhamento interno de toda a rota</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="w-12 h-12 rounded-lg gradient-gold flex items-center justify-center flex-shrink-0">
+                  <Truck className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Frota Certificada</h3>
+                  <p className="text-sm text-muted-foreground">Veículos modernos e parceiros de confiança</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative h-96 rounded-2xl overflow-hidden premium-shadow-lg order-1 md:order-2">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/seguranca-carga-RjidXLvdMsqrLWTAPf.webp"
+              alt="Segurança de carga"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Speed Section */}
+      <section className="py-20 md:py-32 bg-gradient-to-br from-accent/5 to-primary/5">
+        <div className="container grid md:grid-cols-2 gap-16 items-center">
+          <div className="relative h-96 rounded-2xl overflow-hidden premium-shadow">
+            <img 
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/entrega-rapida-85oueMQWuvnSPfcNR4d2zD.webp"
+              alt="Entrega rápida"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-primary mb-4">Entrega Rápida e Confiável</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Com rotas otimizadas e equipes eficientes, garantimos prazos cumpridos e entregas no tempo certo.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-start gap-4 p-4 bg-white rounded-lg border border-border hover:border-accent transition-colors">
+                <Zap className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-semibold text-foreground">Otimização de Rotas</h3>
+                  <p className="text-sm text-muted-foreground">Planejamento focado nos melhores caminhos</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-4 bg-white rounded-lg border border-border hover:border-accent transition-colors">
+                <Zap className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-semibold text-foreground">Equipes Dedicadas</h3>
+                  <p className="text-sm text-muted-foreground">Profissionais experientes e comprometidos</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-4 bg-white rounded-lg border border-border hover:border-accent transition-colors">
+                <Zap className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-semibold text-foreground">Suporte Operacional</h3>
+                  <p className="text-sm text-muted-foreground">Sempre disponível para garantir o sucesso da viagem</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NOVA SEÇÃO: AGREGUE CONOSCO (Com o visual original) */}
+      <section id="agregar" className="py-20 md:py-32 bg-white border-t border-border">
+        <div className="container grid md:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
+                <Users className="w-4 h-4" /> Para Motoristas
+              </div>
+              <h2 className="text-primary mb-4">Agregue seu Veículo Conosco</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Buscamos motoristas parceiros que compartilhem dos nossos valores. Na Pertini Express, acreditamos que o sucesso da transportadora começa com o respeito e o preço justo repassado aos nossos agregados.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                "Pagamentos justos e pontuais", 
+                "Suporte operacional dedicado", 
+                "Parceria de longo prazo", 
+                "Cargas seguras e monitoradas"
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-foreground font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4">
+              <a href={whatsappLinkDouglas} target="_blank" rel="noopener noreferrer">
+                <Button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white h-12 px-8 rounded-lg font-medium flex items-center justify-center gap-2 shadow-lg">
+                  <MessageCircle className="w-5 h-5" />
+                  Falar com Douglas (Agregar)
+                </Button>
+              </a>
+            </div>
+          </div>
+          
+          <div className="relative h-96 rounded-2xl overflow-hidden premium-shadow-lg flex flex-col justify-center items-center text-center p-10">
+            {/* Fundo com as cores da marca */}
+            <div className="absolute inset-0 gradient-accent opacity-90"></div>
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute -top-10 -right-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+            </div>
+            
+            <div className="relative z-10 text-white space-y-6">
+              <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mx-auto shadow-xl">
+                <Truck className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-3xl font-lora font-semibold">Faça Parte da Frota</h3>
+              <p className="text-white/90 text-lg leading-relaxed max-w-sm mx-auto">
+                Traga seu veículo e venha crescer junto com uma empresa que valoriza o seu trabalho nas estradas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section id="contato" className="py-20 md:py-32 bg-white">
+        <div className="container">
+          <div className="relative rounded-2xl overflow-hidden premium-shadow-lg">
+            <div className="absolute inset-0 gradient-accent opacity-90"></div>
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            </div>
+
+            <div className="relative p-12 md:p-20 text-center space-y-8 max-w-2xl mx-auto">
+              <h2 className="text-white">Pronto para Transportar Suas Cargas?</h2>
+              <p className="text-white/90 text-lg leading-relaxed">
+                Entre em contato com nosso comercial e descubra como a Pertini Express pode atender às suas necessidades de transporte com excelência.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <a 
+              href={whatsappLinkSandro}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="w-full sm:w-auto bg-white text-primary hover:bg-gray-100 h-12 px-8 rounded-lg font-medium flex items-center justify-center gap-2">
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp (Cotações)
+              </Button>
+            </a>
+            <a href={`mailto:${emailAddress1}`}>
+              <Button className="w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white border border-white/30 h-12 px-8 rounded-lg font-medium flex items-center justify-center gap-2">
+                <Mail className="w-5 h-5" />
+                E-mail
+              </Button>
+            </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-primary text-white py-12 md:py-16">
+        <div className="container">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <img src={logoUrl} alt="Pertini Express" className="h-10 w-auto" />
+              </div>
+              <p className="text-white/80 text-sm leading-relaxed">
+                Transporte rodoviário de excelência, unindo clientes que precisam de segurança a parceiros que buscam valorização.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="font-semibold">Navegação</h3>
+              <ul className="space-y-2 text-sm text-white/80">
+                <li><a href="#servicos" className="hover:text-white transition-colors">Serviços</a></li>
+                <li><a href="#sobre" className="hover:text-white transition-colors">Sobre Nós</a></li>
+                <li><a href="#agregar" className="hover:text-accent transition-colors font-medium">Agregar Veículo</a></li>
+                <li><a href="#contato" className="hover:text-white transition-colors">Contato</a></li>
+              </ul>
+            </div>
+
+            {/* SEPARAÇÃO DOS CONTATOS NO RODAPÉ */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-accent">Comercial / Clientes</h3>
+              <ul className="space-y-2 text-sm text-white/80">
+                <li className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
                   <span>{phoneSandro} (Sandro)</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-[#d97706]" />
-                  <a href={`mailto:${emailPrincipal}`} className="hover:text-white transition-colors">{emailPrincipal}</a>
+                <li className="flex items-center gap-2">
+                  <MessageCircle className="w-4 h-4 text-green-400" />
+                  <a href={whatsappLinkSandro} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp Comercial</a>
                 </li>
-                <li className="flex items-center gap-3">
-                  <MessageCircle className="w-4 h-4 text-[#25D366]" />
-                  <a href={linkSandro} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-[#d97706]/50">WhatsApp Vendas</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="space-y-5">
-              <h3 className="font-bold text-[#d97706] uppercase tracking-wider text-sm border-b border-white/10 pb-2">Agregados / Operacional</h3>
-              <ul className="space-y-3 text-sm text-white/90">
-                <li className="flex items-center gap-3 text-white/80">
-                  <Truck className="w-4 h-4 text-[#d97706]" />
-                  <span>Fale com o Douglas</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <MessageCircle className="w-4 h-4 text-[#25D366]" />
-                  <a href={linkDouglas} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-[#d97706]/50">WhatsApp Agregados</a>
+                <li className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  <a href={`mailto:${emailAddress1}`} className="hover:text-white transition-colors text-xs">{emailAddress1}</a>
                 </li>
               </ul>
             </div>
 
-            <div className="space-y-5">
-              <h3 className="font-bold text-[#d97706] uppercase tracking-wider text-sm border-b border-white/10 pb-2">Atendimento</h3>
-              <ul className="space-y-3 text-sm text-white/80">
-                <li>Segunda - Sexta: 08:00 - 18:00</li>
-                <li>Sábado: 08:00 - 12:00</li>
-                <li className="text-[#d97706] font-medium pt-2">Cargas monitoradas diariamente</li>
+            <div className="space-y-4">
+              <h3 className="font-semibold text-accent">Agregados / Motoristas</h3>
+              <ul className="space-y-2 text-sm text-white/80">
+                <li className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  <span>{phoneDouglas} (Douglas)</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <MessageCircle className="w-4 h-4 text-green-400" />
+                  <a href={whatsappLinkDouglas} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp Agregados</a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  <a href={`mailto:${emailAddress2}`} className="hover:text-white transition-colors text-xs">{emailAddress2}</a>
+                </li>
               </ul>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/10 text-center text-xs text-white/50 tracking-wider">
-            <p>&copy; 2024 PERTINI EXPRESS LTDA | CNPJ: 053.615.257/0001-26</p>
+          <div className="pt-8 border-t border-white/20 text-center flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
+            <p>&copy; 2024 PERTINI EXPRESS LTDA | CNPJ: 053.615.257/0001-14</p>
+            <p className="mt-2 md:mt-0">Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
