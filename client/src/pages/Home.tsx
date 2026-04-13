@@ -65,7 +65,7 @@ export default function Home() {
   ];
 
   const benefits = [
-    "Frota moderna e certificada",
+    "Frota moderna",
     "Motoristas experientes e parceiros",
     "Preço justo para clientes e agregados",
     "Seguro abrangente de cargas",
@@ -106,7 +106,7 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
         </div>
         
-        <div className="container relative py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+        <div className="container relative py-20 md:py-32 grid md:grid-cols-2 gap-11 items-center">
           <div className="space-y-6">
             <h1 className="text-gradient">
               Transporte de Excelência para Seu Negócio
