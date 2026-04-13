@@ -85,8 +85,7 @@ export default function Home() {
             <a href="#servicos" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Serviços</a>
             <a href="#sobre" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Sobre</a>
             <a href="#contato" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Contato</a>
-            {/* Novo botão Agregar no menu */}
-            <a href="#agregar" className="text-sm font-bold text-accent hover:text-accent/80 transition-colors border-b-2 border-accent pb-1">Agregar</a>
+            <a href="#agregar" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Agregar</a>
           </nav>
           <a 
             href={whatsappLinkSandro}
