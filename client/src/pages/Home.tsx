@@ -33,7 +33,7 @@ export default function Home() {
   const whatsappLinkSandro = `https://wa.me/${whatsappNumberSandro}?text=${encodeURIComponent(msgCliente)}`;
   const whatsappLinkDouglas = `https://wa.me/${whatsappNumberDouglas}?text=${encodeURIComponent(msgAgregado)}`;
   
-  const emailAddress1 = "pertiniexpress@pertiniexpress.com.br";
+  const emailAddress1 = "contato@pertiniexpress.com.br";
   const emailAddress2 = "douglasalex@pertiniexpress.com.br";
   
   const phoneSandro = "(41) 99845-5070";
