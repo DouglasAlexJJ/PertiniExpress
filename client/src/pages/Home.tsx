@@ -206,61 +206,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Security Section */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container grid md:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8 order-2 md:order-1">
-            <div>
-              <h2 className="text-primary mb-4">Segurança em Primeiro Lugar</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Sua carga é nossa responsabilidade. Realizamos um controle rígido e interno de cada viagem, com cobertura de seguro abrangente para sua tranquilidade.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg gradient-gold flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Proteção Total</h3>
-                  <p className="text-sm text-muted-foreground">Seguro abrangente para todas as suas cargas</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg gradient-gold flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Monitoramento Contínuo</h3>
-                  <p className="text-sm text-muted-foreground">Acompanhamento interno de toda a rota</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg gradient-gold flex items-center justify-center flex-shrink-0">
-                  <Truck className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Frota Certificada</h3>
-                  <p className="text-sm text-muted-foreground">Veículos modernos e parceiros de confiança</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative h-96 rounded-2xl overflow-hidden premium-shadow-lg order-1 md:order-2">
-            <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/seguranca-carga-RjidXLvdMsqrLWTAPf.webp"
-              alt="Segurança de carga"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
+      
       {/* Speed Section */}
       <section className="py-20 md:py-32 bg-gradient-to-br from-accent/5 to-primary/5">
         <div className="container grid md:grid-cols-2 gap-16 items-center">
