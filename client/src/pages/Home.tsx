@@ -107,8 +107,8 @@ export default function Home() {
         </div>
         
         <div className="container relative py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-5">
-            <h1 className="text-gradient">
+          <div className="space-y-6">
+            <h1 className="text-gradient pb-2 leading-tight">
               Transporte de Excelência para Seu Negócio
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
