@@ -47,9 +47,9 @@
 
 :root {
   /* Premium Logistics Brand Colors */
-  --primary: #0f172a;
+  --primary: #1a1c1e;
   --primary-foreground: #f8fafc;
-  --sidebar-primary: #1e293b;
+  --sidebar-primary: #25282a;
   --sidebar-primary-foreground: #f8fafc;
   --accent: #e2e8f0;
   --accent-foreground: #ffffff;
@@ -194,11 +194,11 @@
   }
 
   .gradient-accent {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(135deg, #1a1c1e 0%, #2d3135 100%);
   }
 
   .gradient-gold {
-    background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
+    background: linear-gradient(135deg, #2d3135 0%, #1a1c1e 100%);
   }
 
   .premium-shadow {

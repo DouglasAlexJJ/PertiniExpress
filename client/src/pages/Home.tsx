@@ -76,16 +76,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header/Navigation */}
-      <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-slate-900/80 border-b border-slate-800">
+      <header className="sticky top-0 z-50 bg-[#1a1c1e]/95 backdrop-blur supports-[backdrop-filter]:bg-[#1a1c1e]/80 border-b border-white/5">
         <div className="container flex items-center justify-between h-20">
           <div className="flex items-center gap-2">
-            <img src={logoUrl} alt="Pertini Express" className="h-14 w-auto object-contain" />
+            <img src={logoUrl} alt="Pertini Express" className="h-16 w-auto object-contain" />
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#servicos" className="text-sm font-medium text-slate-200 hover:text-accent transition-colors">Serviços</a>
-            <a href="#sobre" className="text-sm font-medium text-slate-200 hover:text-accent transition-colors">Sobre</a>
-            <a href="#contato" className="text-sm font-medium text-slate-200 hover:text-accent transition-colors">Contato</a>
-            <a href="#agregar" className="text-sm font-medium text-slate-200 hover:text-accent transition-colors">Agregar</a>
+            <a href="#servicos" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Serviços</a>
+            <a href="#sobre" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Sobre</a>
+            <a href="#contato" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Contato</a>
+            <a href="#agregar" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Agregar</a>
           </nav>
           <a 
             href={whatsappLinkSandro}
@@ -134,12 +134,11 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="relative h-[450px] rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center p-4 premium-shadow-lg border border-slate-800">
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-700 via-slate-900 to-slate-950"></div>
+          <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden bg-[#1a1c1e] flex items-center justify-center premium-shadow-lg border border-white/5">
             <img 
               src={logoUrl} 
               alt="Pertini Express Logo" 
-              className="relative z-10 w-full h-full object-contain transform hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover md:object-contain transform hover:scale-105 transition-transform duration-700"
               />
           </div>
         </div>
