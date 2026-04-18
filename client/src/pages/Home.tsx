@@ -39,7 +39,7 @@ export default function Home() {
   const phoneSandro = "(41) 99845-5070";
   const phoneDouglas = "(41) 99734-1333";
   
-  const logoUrl = "https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/pertini-express-logo_a5eb312f.png";
+  const logoUrl = "/logo.png";
 
   const services = [
     {
@@ -134,13 +134,13 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="relative h-96 rounded-2xl overflow-hidden premium-shadow-lg">
+          <div className="relative h-96 rounded-2xl overflow-hidden bg-white flex items-center justify-center p-8 premium-shadow-lg">
             <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/hero-frota-moderna-HHxSvHHQeYjNFu8NiaZ7oz.webp"
-              alt="Frota moderna Pertini Express"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+              src="/logo.png" 
+              alt="Pertini Express Logo" 
+              className="max-w-full max-h-full object-contain"
+              />
+              {/* Removido o overlay escuro para a logo brilhar no fundo branco */}
           </div>
         </div>
       </section>
