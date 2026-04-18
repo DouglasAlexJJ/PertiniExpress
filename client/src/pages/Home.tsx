@@ -39,7 +39,7 @@ export default function Home() {
   const phoneSandro = "(41) 99845-5070";
   const phoneDouglas = "(41) 99734-1333";
   
-  const logoUrl = "/logo.png";
+  const logoUrl = "/logo-new.webp";
 
   const services = [
     {
@@ -76,16 +76,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header/Navigation */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-border">
-        <div className="container flex items-center justify-between h-16">
+      <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-slate-900/80 border-b border-slate-800">
+        <div className="container flex items-center justify-between h-20">
           <div className="flex items-center gap-2">
-            <img src={logoUrl} alt="Pertini Express" className="h-12 w-auto" />
+            <img src={logoUrl} alt="Pertini Express" className="h-14 w-auto object-contain" />
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#servicos" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Serviços</a>
-            <a href="#sobre" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Sobre</a>
-            <a href="#contato" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Contato</a>
-            <a href="#agregar" className="text-sm font-medium text-foreground hover:text-primary transition-colors">Agregar</a>
+            <a href="#servicos" className="text-sm font-medium text-slate-200 hover:text-accent transition-colors">Serviços</a>
+            <a href="#sobre" className="text-sm font-medium text-slate-200 hover:text-accent transition-colors">Sobre</a>
+            <a href="#contato" className="text-sm font-medium text-slate-200 hover:text-accent transition-colors">Contato</a>
+            <a href="#agregar" className="text-sm font-medium text-slate-200 hover:text-accent transition-colors">Agregar</a>
           </nav>
           <a 
             href={whatsappLinkSandro}
@@ -108,7 +108,7 @@ export default function Home() {
         
         <div className="container relative py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-gradient pb-2 leading-tight">
+            <h1 className="text-slate-900 pb-2 leading-tight">
               Transporte de Excelência para Seu Negócio
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -134,13 +134,13 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="relative h-96 rounded-2xl overflow-hidden bg-white flex items-center justify-center p-8 premium-shadow-lg">
+          <div className="relative h-[450px] rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center p-4 premium-shadow-lg border border-slate-800">
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-700 via-slate-900 to-slate-950"></div>
             <img 
-              src="/logo.png" 
+              src={logoUrl} 
               alt="Pertini Express Logo" 
-              className="max-w-full max-h-full object-contain"
+              className="relative z-10 w-full h-full object-contain transform hover:scale-105 transition-transform duration-500"
               />
-              {/* Removido o overlay escuro para a logo brilhar no fundo branco */}
           </div>
         </div>
       </section>
@@ -303,7 +303,7 @@ export default function Home() {
             </div>
             
             <div className="relative z-10 text-white space-y-6">
-              <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mx-auto shadow-xl">
+              <div className="w-20 h-20 rounded-2xl bg-slate-800/50 backdrop-blur-sm border border-slate-700 flex items-center justify-center mx-auto shadow-xl">
                 <Truck className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-3xl font-lora font-semibold">Faça Parte da Frota</h3>
