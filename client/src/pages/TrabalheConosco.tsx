@@ -38,38 +38,19 @@ export default function TrabalheConosco() {
     setIsLoading(true);
 
     try {
-      // Validar campos obrigatórios
       if (!formData.nome || !formData.email || !formData.telefone) {
         toast.error("Por favor, preencha todos os campos obrigatórios");
         setIsLoading(false);
         return;
       }
 
-      // Construir corpo do email em formato HTML
-      const emailBody = `
-        <h2>Nova Candidatura - Trabalhe Conosco</h2>
-        <p><strong>Nome:</strong> ${formData.nome}</p>
-        <p><strong>Email:</strong> ${formData.email}</p>
-        <p><strong>Telefone:</strong> ${formData.telefone}</p>
-        <p><strong>Cidade:</strong> ${formData.cidade}</p>
-        <p><strong>Estado:</strong> ${formData.estado}</p>
-        <p><strong>Anos de Experiência:</strong> ${formData.experiencia}</p>
-        <p><strong>Tipo de Veículo:</strong> ${formData.veiculo}</p>
-        <p><strong>Mensagem:</strong></p>
-        <p>${formData.mensagem.replace(/\n/g, '<br>')}</p>
-      `;
-
-      // Enviar email via mailto (fallback) ou API
       const mailtoLink = `mailto:${emailAgregados}?subject=Candidatura - ${formData.nome}&body=${encodeURIComponent(
         `Nome: ${formData.nome}\nEmail: ${formData.email}\nTelefone: ${formData.telefone}\nCidade: ${formData.cidade}\nEstado: ${formData.estado}\nExperiência: ${formData.experiencia}\nVeículo: ${formData.veiculo}\n\nMensagem:\n${formData.mensagem}`
       )}`;
 
-      // Abrir cliente de email
       window.location.href = mailtoLink;
-
       toast.success("Redirecionando para seu cliente de email...");
       
-      // Limpar formulário após sucesso
       setTimeout(() => {
         setFormData({
           nome: "",
@@ -92,7 +73,6 @@ export default function TrabalheConosco() {
 
   return (
     <div className="min-h-screen bg-[#0f1113] text-slate-200 selection:bg-white/10">
-      {/* Header/Navigation */}
       <header className="sticky top-0 z-50 bg-[#1a1c1e]/90 backdrop-blur-md border-b border-white/5">
         <div className="container flex items-center justify-between h-20">
           <button
@@ -107,7 +87,6 @@ export default function TrabalheConosco() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         <div className="container">
           <div className="space-y-8 text-center">
@@ -125,7 +104,6 @@ export default function TrabalheConosco() {
         </div>
       </section>
 
-      {/* Benefits Section */}
       <section className="py-24 bg-[#16181a] border-y border-white/5">
         <div className="container space-y-16">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
@@ -177,7 +155,6 @@ export default function TrabalheConosco() {
         </div>
       </section>
 
-      {/* Form Section */}
       <section className="py-24">
         <div className="container max-w-3xl">
           <div className="space-y-8">
@@ -191,7 +168,6 @@ export default function TrabalheConosco() {
             <Card className="bg-[#1a1c1e] border-white/5">
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Nome */}
                   <div className="space-y-2">
                     <Label htmlFor="nome" className="text-white">Nome Completo *</Label>
                     <Input
@@ -206,7 +182,6 @@ export default function TrabalheConosco() {
                     />
                   </div>
 
-                  {/* Email */}
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-white">Email *</Label>
                     <Input
@@ -221,7 +196,6 @@ export default function TrabalheConosco() {
                     />
                   </div>
 
-                  {/* Telefone */}
                   <div className="space-y-2">
                     <Label htmlFor="telefone" className="text-white">Telefone/WhatsApp *</Label>
                     <Input
@@ -236,7 +210,6 @@ export default function TrabalheConosco() {
                     />
                   </div>
 
-                  {/* Localização */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="cidade" className="text-white">Cidade</Label>
@@ -291,7 +264,6 @@ export default function TrabalheConosco() {
                     </div>
                   </div>
 
-                  {/* Experiência */}
                   <div className="space-y-2">
                     <Label htmlFor="experiencia" className="text-white">Anos de Experiência</Label>
                     <Input
@@ -305,7 +277,6 @@ export default function TrabalheConosco() {
                     />
                   </div>
 
-                  {/* Tipo de Veículo */}
                   <div className="space-y-2">
                     <Label htmlFor="veiculo" className="text-white">Tipo de Veículo</Label>
                     <select
@@ -325,7 +296,6 @@ export default function TrabalheConosco() {
                     </select>
                   </div>
 
-                  {/* Mensagem */}
                   <div className="space-y-2">
                     <Label htmlFor="mensagem" className="text-white">Mensagem Adicional</Label>
                     <Textarea
@@ -350,7 +320,6 @@ export default function TrabalheConosco() {
               </CardContent>
             </Card>
 
-            {/* Contact Info */}
             <div className="bg-[#16181a] border border-white/5 rounded-2xl p-8 space-y-6">
               <h4 className="text-xl font-bold text-white">Ou Entre em Contato Diretamente</h4>
               <div className="space-y-4">
@@ -382,7 +351,6 @@ export default function TrabalheConosco() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-[#0f1113] pt-24 pb-12 border-t border-white/5">
         <div className="container">
           <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600 font-medium">
