@@ -97,7 +97,7 @@ export default function Home() {
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
               Logística de Alta Performance
             </div>
-            <h1 className="text-gradient leading-[1.1]">
+            <h1 className="text-gradient leading-[1.2] pb-2">
               Transporte de Excelência para Seu Negócio
             </h1>
             <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
@@ -119,11 +119,11 @@ export default function Home() {
           
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-r from-white/10 to-transparent rounded-[2rem] blur-2xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
-            <div className="relative aspect-square md:aspect-video lg:aspect-square rounded-3xl overflow-hidden bg-[#1a1c1e] border border-white/10 flex items-center justify-center p-4 shadow-2xl">
+            <div className="relative aspect-video rounded-3xl overflow-hidden bg-[#1a1c1e] border border-white/10 flex items-center justify-center shadow-2xl">
               <img 
                 src={logoUrl} 
                 alt="Pertini Express Logo" 
-                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-1000"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
               />
             </div>
           </div>
