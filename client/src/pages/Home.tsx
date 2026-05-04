@@ -22,7 +22,7 @@ export default function Home() {
   const whatsappLinkSandro = `https://wa.me/${whatsappNumberSandro}?text=${encodeURIComponent(msgCliente)}`;
   const whatsappLinkDouglas = `https://wa.me/${whatsappNumberDouglas}?text=${encodeURIComponent(msgAgregado)}`;
   
-  const emailAddress1 = "contato@pertiniexpress.com.br";
+  const emailAddress1 = "sandro.rocha@pertiniexpress.com.br";
   const emailAddress2 = "douglasalex@pertiniexpress.com.br";
   
   const phoneSandro = "(41) 99845-5070";
@@ -75,7 +75,7 @@ export default function Home() {
             <a href="#sobre" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">Sobre</a>
             <a href="#cotacao" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">Cotação</a>
             <a href="#contato" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">Contato</a>
-            <a href="/trabalhe-conosco" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">Trabalhe Conosco</a>
+
           </nav>
           <a 
             href={whatsappLinkSandro}
@@ -283,7 +283,7 @@ export default function Home() {
                 <form className="space-y-6" onSubmit={(e) => {
                   e.preventDefault();
                   const formData = new FormData(e.currentTarget);
-                  const mailtoLink = `mailto:contato@pertiniexpress.com.br?subject=Solicitação de Cotação&body=${encodeURIComponent(
+                  const mailtoLink = `mailto:pertini@pertiniexpress.com.br?subject=Solicitação de Cotação&body=${encodeURIComponent(
                     `Nome: ${formData.get('nome')}\nEmail: ${formData.get('email')}\nTelefone: ${formData.get('telefone')}\n\nDados da Carga:\nOrigem: ${formData.get('origem')}\nDestino: ${formData.get('destino')}\nTipo de Carga: ${formData.get('tipo')}\nPeso: ${formData.get('peso')}\nDimensões: ${formData.get('dimensoes')}\n\nObservações: ${formData.get('observacoes')}`
                   )}`;
                   window.location.href = mailtoLink;
@@ -375,9 +375,9 @@ export default function Home() {
             </div>
 
             <div className="pt-4">
-              <a href="/trabalhe-conosco">
+              <a href={whatsappLinkDouglas} target="_blank" rel="noopener noreferrer">
                 <Button className="w-full sm:w-auto bg-white text-black hover:bg-slate-200 h-14 px-10 rounded-full font-bold text-base shadow-xl shadow-white/5">
-                  Trabalhe Conosco
+                  Fale com o Douglas
                 </Button>
               </a>
             </div>
@@ -415,7 +415,7 @@ export default function Home() {
               <ul className="space-y-4 text-sm text-slate-400">
                 <li><a href="#servicos" className="hover:text-white transition-colors">Serviços</a></li>
                 <li><a href="#sobre" className="hover:text-white transition-colors">Sobre Nós</a></li>
-                <li><a href="/trabalhe-conosco" className="hover:text-white transition-colors">Trabalhe Conosco</a></li>
+
                 <li><a href="#contato" className="hover:text-white transition-colors">Contato</a></li>
               </ul>
             </div>
