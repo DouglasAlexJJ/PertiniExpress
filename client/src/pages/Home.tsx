@@ -162,34 +162,53 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="sobre" className="py-24 md:py-32">
+      <section id="sobre" className="py-24 md:py-32 bg-gradient-to-b from-[#0f1113] to-[#16181a]">
         <div className="container grid lg:grid-cols-2 gap-20 items-center">
-          <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-            <img 
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663091390989/ZU74dY8PLxXNfdVWFymdwu/rastreamento-logistica-PUPYSW3kgzf8CUWWTh9aVH.webp"
-              alt="Sistema de rastreamento"
-              className="w-full h-full object-cover opacity-60"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0f1113] via-transparent to-transparent"></div>
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-[2rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+            <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#0f1113]">
+              <img 
+                src="/mapa-brasil.jpg"
+                alt="Mapa de Atuação Brasil"
+                className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f1113] via-transparent to-transparent"></div>
+              
+              {/* Pontos de destaque no mapa (efeito visual) */}
+              <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
+              <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-green-500 rounded-full animate-ping delay-300"></div>
+              <div className="absolute bottom-1/4 left-1/2 w-2 h-2 bg-green-500 rounded-full animate-ping delay-700"></div>
+            </div>
           </div>
 
           <div className="space-y-10">
             <div className="space-y-6">
-              <h2 className="text-white">Por Que Escolher a Pertini Express?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                Por Que Escolher a <span className="text-green-500">Pertini Express?</span>
+              </h2>
               <p className="text-lg text-slate-400 leading-relaxed">
-                Fundada por Sandro Augusto da Rocha, a Pertini Express oferece soluções confiáveis e eficientes, valorizando tanto o cliente quanto nossos motoristas parceiros.
+                Fundada por Sandro Augusto da Rocha, a Pertini Express oferece soluções confiáveis e eficientes, valorizando tanto o cliente quanto nossos motoristas parceiros em todo o território nacional.
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-y-6 gap-x-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-3 group">
-                  <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
-                    <Check className="w-3.5 h-3.5 text-white" />
+                <div key={index} className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 group-hover:scale-110 transition-all duration-300">
+                    <Check className="w-5 h-5 text-green-500" />
                   </div>
-                  <span className="text-slate-300 font-medium">{benefit}</span>
+                  <span className="text-slate-200 font-semibold text-lg">{benefit}</span>
                 </div>
               ))}
+            </div>
+            
+            <div className="pt-6">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                <p className="text-slate-300 italic">
+                  "Nossa missão é conectar o Brasil com segurança e agilidade, tratando cada carga como se fosse nossa."
+                </p>
+                <p className="text-white font-bold mt-4">— Sandro Augusto da Rocha</p>
+              </div>
             </div>
           </div>
         </div>
