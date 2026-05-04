@@ -57,7 +57,6 @@ export default function Home() {
     "Frota moderna",
     "Motoristas experientes e parceiros",
     "Preço justo para clientes e agregados",
-    "Seguro abrangente de cargas",
     "Atendimento personalizado",
     "Cargas 100% monitoradas internamente"
   ];
@@ -184,7 +183,7 @@ export default function Home() {
           <div className="space-y-10">
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                Por Que Escolher a <span className="text-green-500">Pertini Express?</span>
+                Por Que Escolher a Pertini Express?
               </h2>
               <p className="text-lg text-slate-400 leading-relaxed">
                 Fundada por Sandro Augusto da Rocha, a Pertini Express oferece soluções confiáveis e eficientes, valorizando tanto o cliente quanto nossos motoristas parceiros em todo o território nacional.
@@ -202,14 +201,7 @@ export default function Home() {
               ))}
             </div>
             
-            <div className="pt-6">
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <p className="text-slate-300 italic">
-                  "Nossa missão é conectar o Brasil com segurança e agilidade, tratando cada carga como se fosse nossa."
-                </p>
-                <p className="text-white font-bold mt-4">— Sandro Augusto da Rocha</p>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
